@@ -13,9 +13,10 @@
     min-height: 100vh;
   }
   header {
+    position: relative;
     background: linear-gradient(135deg, #162a42 0%, #0f1c2e 100%);
     border-bottom: 2px solid #4a90d9;
-    padding: 24px 20px 20px;
+    padding: 42px 20px 20px;
     text-align: center;
   }
   header h1 { font-size: 24px; color: #fff; letter-spacing: 2px; }
@@ -124,14 +125,52 @@
     color: #4a5568;
     border-top: 1px solid #1e3a5f;
   }
+
+  /* Language switcher */
+  .lang-select {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(22, 42, 66, 0.85);
+    color: #c9a84c;
+    border: 1px solid #c9a84c;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 22px 6px 10px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5'><path d='M0 0l4 5 4-5z' fill='%23c9a84c'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    z-index: 10;
+  }
+  .lang-select option { background: #162a42; color: #e2e8f0; }
+  @media (min-width: 641px) {
+    .lang-select { top: 14px; right: 20px; font-size: 12px; }
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>POLICE SERIES</h1>
-  <p>S.W.A.T. & police role-play sets · Bulk orders welcome</p>
-  <a class="back" href="index.html">← Back to Home</a>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="pt">Português</option>
+    <option value="ru">Русский</option>
+    <option value="ar">العربية</option>
+    <option value="ms">Melayu</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="de">Deutsch</option>
+    <option value="pl">Polski</option>
+    <option value="ja">日本語</option>
+    <option value="fr">Français</option>
+  </select>
+  <h1 data-i18n="series.police.t">POLICE SERIES</h1>
+  <p data-i18n="series.police.d">S.W.A.T. & police role-play sets · Bulk orders welcome</p>
+  <a class="back" href="index.html"><span data-i18n="back">← Back to Home</span></a>
 </header>
 
 <div class="gallery">
@@ -142,8 +181,8 @@
 </div>
 
 <div class="cta">
-  <a class="btn btn-wa" href="https://wa.me/8613923943220" target="_blank" rel="noopener">Chat on WhatsApp</a>
-  <a class="btn btn-mail" href="mailto:weihong-555@163.com">Email Us About This Series</a>
+  <a class="btn btn-wa" href="https://wa.me/8613923943220" target="_blank" rel="noopener" data-i18n="ctaWa">Chat on WhatsApp</a>
+  <a class="btn btn-mail" href="mailto:weihong-555@163.com" data-i18n="ctaMailSeries">Email Us About This Series</a>
 </div>
 
 <footer>
@@ -155,6 +194,8 @@
   <img id="lightbox-img" src="" alt="Enlarged product photo">
 </div>
 
+<script src="lang.js"></script>
+<script>hhApply("police");</script>
 <script>
   document.querySelectorAll('.gallery a').forEach(function (link) {
     link.addEventListener('click', function (e) {

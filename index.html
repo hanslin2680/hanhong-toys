@@ -7,7 +7,7 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
-    font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+    font-family: "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     background: #0f1c2e;
     color: #e2e8f0;
     min-height: 100vh;
@@ -17,8 +17,9 @@
   header {
     background: linear-gradient(135deg, #162a42 0%, #0f1c2e 100%);
     border-bottom: 2px solid #c9a84c;
-    padding: 32px 16px 26px;
+    padding: 42px 16px 26px;
     text-align: center;
+    position: relative;
   }
   header h1 {
     font-size: 20px;
@@ -34,9 +35,35 @@
     line-height: 1.7;
   }
   @media (min-width: 641px) {
-    header { padding: 28px 20px 24px; }
+    header { padding: 34px 20px 24px; }
     header h1 { font-size: 26px; letter-spacing: 2px; }
     header p { font-size: 13px; }
+  }
+
+  /* Language switcher */
+  .lang-select {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(22, 42, 66, 0.85);
+    color: #c9a84c;
+    border: 1px solid #c9a84c;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 22px 6px 10px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='8' height='5'><path d='M0 0l4 5 4-5z' fill='%23c9a84c'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    z-index: 10;
+  }
+  .lang-select:focus { outline: 1px solid #c9a84c; }
+  .lang-select option { background: #162a42; color: #e2e8f0; }
+  @media (min-width: 641px) {
+    .lang-select { top: 16px; right: 20px; font-size: 12px; }
   }
 
   /* Contact bar — stacked on mobile, labeled */
@@ -212,64 +239,80 @@
 <body>
 
 <header>
-  <h1>HANHONG PLASTIC TOYS FACTORY</h1>
-  <p>PLASTIC ACTION FIGURE & ROLE-PLAY TOYS<br>WHOLESALE & OEM</p>
+  <select class="lang-select" id="langSelect" aria-label="Language">
+    <option value="en">English</option>
+    <option value="es">Español</option>
+    <option value="pt">Português</option>
+    <option value="ru">Русский</option>
+    <option value="ar">العربية</option>
+    <option value="ms">Melayu</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="de">Deutsch</option>
+    <option value="pl">Polski</option>
+    <option value="ja">日本語</option>
+    <option value="fr">Français</option>
+  </select>
+  <h1 data-i18n="brand">HANHONG PLASTIC TOYS FACTORY</h1>
+  <p><span data-i18n="home.sub1">PLASTIC ACTION FIGURE &amp; ROLE-PLAY TOYS</span><br><span data-i18n="home.sub2">WHOLESALE &amp; OEM</span></p>
 </header>
 
-<div class="section-title">Product Series</div>
-<div class="section-sub">Tap any series to browse the full product gallery</div>
+<div class="section-title" data-i18n="home.seriesTitle">Product Series</div>
+<div class="section-sub" data-i18n="home.seriesSub">Tap any series to browse the full product gallery</div>
 
 <div class="grid">
   <a class="card" href="ninja.html">
     <img src="pics/ninja/ninja-2.jpg" alt="Ninja Series">
     <div class="card-body">
-      <h3>Ninja Series</h3>
-      <p>Classic ninja weapons sets<br>Great for collection & wholesale</p>
-      <span class="view">VIEW GALLERY →</span>
+      <h3 data-i18n="series.ninja.t">Ninja Series</h3>
+      <p><span data-i18n="series.ninja.d1">Classic ninja weapons sets</span><br><span data-i18n="series.ninja.d2">Great for collection &amp; wholesale</span></p>
+      <span class="view" data-i18n="home.view">VIEW GALLERY →</span>
     </div>
   </a>
   <a class="card" href="police.html">
     <img src="pics/police/police-2.jpg" alt="Police Series">
     <div class="card-body">
-      <h3>Police Series</h3>
-      <p>S.W.A.T. & police role-play sets<br>Bulk orders welcome</p>
-      <span class="view">VIEW GALLERY →</span>
+      <h3 data-i18n="series.police.t">Police Series</h3>
+      <p><span data-i18n="series.police.d1">S.W.A.T. &amp; police role-play sets</span><br><span data-i18n="series.police.d2">Bulk orders welcome</span></p>
+      <span class="view" data-i18n="home.view">VIEW GALLERY →</span>
     </div>
   </a>
   <a class="card" href="firefighter.html">
     <img src="pics/firefighter/firefighter-4.jpg" alt="Firefighter Series">
     <div class="card-body">
-      <h3>Firefighter Series</h3>
-      <p>Firefighter role-play costumes & gear<br>Bright colors, safe materials</p>
-      <span class="view">VIEW GALLERY →</span>
+      <h3 data-i18n="series.firefighter.t">Firefighter Series</h3>
+      <p><span data-i18n="series.firefighter.d1">Firefighter role-play costumes &amp; gear</span><br><span data-i18n="series.firefighter.d2">Bright colors, safe materials</span></p>
+      <span class="view" data-i18n="home.view">VIEW GALLERY →</span>
     </div>
   </a>
   <a class="card" href="military.html">
     <img src="pics/military/military-2.jpg" alt="Military Series">
     <div class="card-body">
-      <h3>Military Series</h3>
-      <p>Combat soldier sets, all branches<br>Customization available</p>
-      <span class="view">VIEW GALLERY →</span>
+      <h3 data-i18n="series.military.t">Military Series</h3>
+      <p><span data-i18n="series.military.d1">Combat soldier sets, all branches</span><br><span data-i18n="series.military.d2">Customization available</span></p>
+      <span class="view" data-i18n="home.view">VIEW GALLERY →</span>
     </div>
   </a>
 </div>
 
 <div class="cta">
-  <a class="btn btn-wa" href="https://wa.me/8613923943220" target="_blank" rel="noopener">Chat on WhatsApp</a>
-  <a class="btn btn-mail" href="mailto:weihong-555@163.com">Email Us for a Quote</a>
+  <a class="btn btn-wa" href="https://wa.me/8613923943220" target="_blank" rel="noopener" data-i18n="ctaWa">Chat on WhatsApp</a>
+  <a class="btn btn-mail" href="mailto:weihong-555@163.com" data-i18n="ctaMail">Email Us for a Quote</a>
 </div>
 
 <div class="contact-bar">
-  <span class="c-item"><span class="label">Contact</span>Weihong Lin</span>
-  <a class="c-item" href="https://wa.me/8613923943220" target="_blank" rel="noopener"><span class="label">WhatsApp</span>+86 139 2394 3220</a>
-  <a class="c-item" href="tel:+8613715896168"><span class="label">Tel</span>+86 137 1589 6168</a>
-  <a class="c-item" href="tel:+8675487220468"><span class="label">Tel</span>+86 0754 8722 0468</a>
-  <a class="c-item" href="mailto:weihong-555@163.com"><span class="label">Email</span>weihong-555@163.com</a>
+  <span class="c-item"><span class="label" data-i18n="lblContact">Contact</span>Weihong Lin</span>
+  <a class="c-item" href="https://wa.me/8613923943220" target="_blank" rel="noopener"><span class="label" data-i18n="lblWa">WhatsApp</span>+86 139 2394 3220</a>
+  <a class="c-item" href="tel:+8613715896168"><span class="label" data-i18n="lblTel">Tel</span>+86 137 1589 6168</a>
+  <a class="c-item" href="tel:+8675487220468"><span class="label" data-i18n="lblTel">Tel</span>+86 0754 8722 0468</a>
+  <a class="c-item" href="mailto:weihong-555@163.com"><span class="label" data-i18n="lblEmail">Email</span>weihong-555@163.com</a>
 </div>
 
 <footer>
-  © 2026 HANHONG PLASTIC TOYS FACTORY<br>Shantou, Guangdong, China<br>Canton Fair 2026
+  © 2026 HANHONG PLASTIC TOYS FACTORY<br><span data-i18n="home.fLoc">Shantou, Guangdong, China</span><br><span data-i18n="home.fFair">Canton Fair 2026</span>
 </footer>
+
+<script src="lang.js"></script>
+<script>hhApply("home");</script>
 
 </body>
 </html>
